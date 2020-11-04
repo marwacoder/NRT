@@ -12,7 +12,7 @@ import {
 import AuthContainer from '../Views/Auth/AuthContainer'
 import ReportIcon from '../Views/Train/SVG/Report'
 import TrainIcon from '../Layout/TrainIcon';
-
+import data from '../helpers/fakeData';
 
 
 const drawerWidth = 240
@@ -276,7 +276,7 @@ const handleClick = (item, selectedIndex) => {
               
                 <Box ml={-30}>
                 <List component="nav" className={classes.navLinks}>
-                  {menu.map((item, index) => {
+                  {data.modules.web.map((item, index) => {
                     return <>
                       <Box pl={2}>
                       <MenuItem key={item.name}  button display="inline" onClick={() => handleClick(item, index)} selected={selected === index}>

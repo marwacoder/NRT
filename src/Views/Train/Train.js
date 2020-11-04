@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
       marginLeft: 270,
     },
     [theme.breakpoints.down('xs')]: {
-      marginLeft: 130
+      marginLeft: 195
     }
   },
   icons: {
@@ -41,7 +41,8 @@ const useStyles = makeStyles((theme) => ({
   avail: {
     cursor: 'pointer',
     margin: '3px 0px',
-    textDecoration: 'underline'
+    textDecoration: 'underline',
+    
   },
   appBarItem: {
     position: 'absolute',
