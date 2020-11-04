@@ -433,7 +433,7 @@ const handleClickOpen = () => {
             <Toolbar >
               <Box  className={classes.appBarItem}>
               <Grid container direction="row" justify="space-between" alignItems="center" spacing={2}>
-                <Grid item >
+                <Grid item xs>
                     <Box>
                       <IconButton
                         color="inherit"
@@ -443,11 +443,11 @@ const handleClickOpen = () => {
                           </IconButton>
                   </Box>
                 </Grid>
-                <Grid item>
+                <Grid item xs>
                    <Box> <DateRangeIcon color="white" style={{fontSize: 30}}/></Box>
                   </Grid>
-                  <Grid item><Box>Fri Nov, 2020</Box></Grid>
-                  <Grid><Box>
+                  <Grid item xs><Box>Fri Nov, 2020</Box></Grid>
+                  <Grid item xs><Box>
                     <IconButton
                       color="inherit"
                           aria-label="toggle password visibility"
