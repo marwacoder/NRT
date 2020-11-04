@@ -47,7 +47,10 @@ const useStyles = makeStyles((theme) => ({
     position: 'absolute',
     top: '50%',
     left: '50%',
-    transform: 'translate(-50%, -50%)'
+    transform: 'translate(-50%, -50%)',
+    [theme.breakpoints.down('sm')]: {
+      marginLeft: -25
+    }
   },
   secondAppBar: {
     backgroundColor: indigo[50],
@@ -63,6 +66,11 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('sm')]: {
       marginTop: '-464px',
       marginLeft: '170px'
+      
+    }
+  },
+  nextBtn: {
+    [theme.breakpoints.down('sm')]: {
       
     }
   },
@@ -432,22 +440,22 @@ const handleClickOpen = () => {
             <AppBar  color="primary" position="static" >
             <Toolbar >
               <Box  className={classes.appBarItem}>
-              <Grid container direction="row" justify="space-between" alignItems="center" spacing={2}>
-                <Grid item xs>
-                    <Box>
+              <Grid container direction="row" justify="flex-start" alignItems="center" spacing={1}>
+                <Grid item xs={3} >
                       <IconButton
                         color="inherit"
                           aria-label="toggle password visibility"
                         edge="end">
                         <NavigateBefore/>
                           </IconButton>
-                  </Box>
                 </Grid>
-                <Grid item xs>
-                   <Box> <DateRangeIcon color="white" style={{fontSize: 30}}/></Box>
-                  </Grid>
-                  <Grid item xs><Box>Fri Nov, 2020</Box></Grid>
-                  <Grid item xs><Box>
+                  
+                    <Grid item xs={3} >
+                      <DateRangeIcon color="white" style={{ fontSize: 30 }} />
+                    </Grid>
+                    <Grid item xs={3}><Box width={90}>Fri Nov, 2020</Box></Grid>
+                    
+                  <Grid item xs={3} ><Box ml={5} className={classes.nextBtn}>
                     <IconButton
                       color="inherit"
                           aria-label="toggle password visibility"
