@@ -1,0 +1,148 @@
+$primary-color: #2D2C94;
+$primary-color-light: #8ecef5;
+$secondary-color: #FF6C00;
+$color-grey: #707070;
+$color-black: #000000;
+$color-white: #FFF;
+$color-background: #777;
+$show-home-image: true;
+$home-image: url(../assets//background_image.jpeg);
+$background-opacity: 0.9;
+
+
+@font-face{
+    font-family: 'Muli';
+    src: local('Muli'), url('../fonts/Muli-Regular.ttf') format('truetype');
+
+}
+
+@mixin easeOut {
+    transition: all 0.5 ease-in-out;
+}
+
+@mixin background {
+    background-image: $home-image;
+}
+
+.round {
+    border: 1px solid grey;
+    border-radius: 2px;
+}
+
+.destination {
+    font-family: src('../fonts/Muli-Bold.ttf');
+}
+.from {
+    display: grid;
+    grid-template-areas: 
+    'icon from'
+    'icon from';
+    grid-gap: 0px;
+}
+
+.filter-01 {
+    display: grid;
+    padding: 20px;
+    grid-template-areas: 
+    'from to date';
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.from {
+    grid-area: from;
+}
+
+.to {
+    grid-gap: to;
+}
+.date {
+    grid-gap: date;
+}
+.filter-btn{
+    float: right;
+    padding: 30px;
+    
+}
+
+.filter-02 {
+    display: grid;
+    padding: 20px;
+    grid-template-areas: 
+    'journey quota departure arrival';
+    grid-template-columns: repeat(4, 1fr);
+}
+
+
+// @mixin background {
+//     @if ($show-home-image) {
+//         &#bg-image{
+//             background: $home-image;
+    
+        
+//         }
+//         &:after{
+//             content: "";
+//             position: absolute;
+//             top: 0;
+//             right: 0;
+//             z-index: -1;
+//             width: 100%;
+//             height: 100%;
+//             background: rgba($primary-color,$background-opacity);
+
+//         }
+        
+//     }
+    
+// }
+
+* {
+    
+    box-sizing: border-box;
+}
+
+
+
+
+body{
+     
+    //background-color: $color-background;
+    margin: 0;
+    line-height: 1.5;
+}
+
+// h1, h2 {
+//     margin: 0;
+//     font-weight: 400;
+
+//     &.lg-heading {
+//         font-size: 6rem;
+//     }
+//     &.sm-heading {
+
+//     }
+
+// }
+
+
+// main {
+//     padding: 4rem;
+//     height: 100%;
+
+//     a {
+//         padding: 0.4rem;
+//     }
+//     &:hover {
+//         color: $secondary-color;
+//         @include easeOut();
+//     }
+//     &#home {
+//     overflow: hidden;
+//     h1 {
+//         margin-top: 20vh;
+//     }
+// }
+// }
+
+
+
