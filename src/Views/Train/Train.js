@@ -23,10 +23,10 @@ const useStyles = makeStyles((theme) => ({
       marginLeft: 130
     },
     [theme.breakpoints.down('sm')]: {
-      marginLeft: 180,
+      marginLeft: 200,
     },
     [theme.breakpoints.down('xs')]: {
-      marginLeft: 190
+      marginLeft: 200
     }
   },
   icons: {
