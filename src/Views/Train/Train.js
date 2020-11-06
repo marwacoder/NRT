@@ -23,10 +23,10 @@ const useStyles = makeStyles((theme) => ({
       marginLeft: 130
     },
     [theme.breakpoints.down('sm')]: {
-      marginLeft: 270,
+      marginLeft: 180,
     },
     [theme.breakpoints.down('xs')]: {
-      marginLeft: 195
+      marginLeft: 190
     }
   },
   icons: {
@@ -60,39 +60,147 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('sm')]: {
       backgroundColor: '#fff',
       
+      
     }
   },
   trainBookInfo: {
     marginTop: '10px',
-    [theme.breakpoints.down('sm')]: {
-      marginTop: '-464px',
+    [theme.breakpoints.down('xs')]: {
+      marginTop: '-20px',
       marginLeft: '170px'
-      
+    },
+    [theme.breakpoints.down('xs')]: {
+      marginTop: '-525px',
+      marginLeft: '170px'
     }
   },
-  nextBtn: {
-    [theme.breakpoints.down('sm')]: {
-      
-    }
-  },
+ 
   heading: {
     
     [theme.breakpoints.down('sm')]: {
       marginBottom: '30px'
     }
     },
-  classes: {
-    marginTop: '22px'
-  },
+  
   availProb: {
-    marginTop: '23px'
+    marginTop: '23px',
+    [theme.breakpoints.down('sm')]: {
+      
+      fontSize: 14,
+      marginLeft: 50
+
+    },
+    [theme.breakpoints.down('xs')]: {
+      marginLeft: 0
+    }
+  },
+  duration: {
+    [theme.breakpoints.down('sm')]: {
+      marginTop: 16
+    }
+  },
+  classes: {
+    marginTop: '22px',
+    [theme.breakpoints.down('sm')]: {
+      marginTop: 20,
+      marginLeft: 20,
+      width: 80
+    },
+    [theme.breakpoints.down('xs')]: {
+      marginTop: 35,
+      marginLeft: 0
+    }
+  },
+  departure: {
+    [theme.breakpoints.down('sm')]: {
+      marginTop: 16
+    }
+  },
+  arrival: {
+    [theme.breakpoints.down('sm')]: {
+      marginTop: 16
+    }
   },
   fare: {
-marginTop: '30px'
+    marginTop: '30px',
+    [theme.breakpoints.down('sm')]: {
+      marginTop: 37,
+      
+    }
   },
   action: {
-    marginTop: '23px'
+    marginTop: '23px',
+    [theme.breakpoints.down('sm')]: {
+      marginTop: 19,
+      width: 150
+    },
+    [theme.breakpoints.down('xs')]: {
+      marginLeft: 0
+    }
+  },
+  buttonGroup: {
+    
+    [theme.breakpoints.down('sm')]: {
+      width: 20
+    }
+  },
+  btnAvail: {
+    [theme.breakpoints.down('sm')]: {
+      fontSize: 13
+    },
+    [theme.breakpoints.down('xs')]: {
+      fontSize: 12
+    }
+  },
+  class: {
+    [theme.breakpoints.down('sm')]: {
+      marginLeft: 30
+    }
+  },
+  availability: {
+    [theme.breakpoints.down('sm')]: {
+      marginLeft: 20
+    }
+  },
+  headerAction: {
+    [theme.breakpoints.down('sm')]: {
+      marginLeft: 20
+    },
+    [theme.breakpoints.down('xs')]: {
+      marginLeft: 1
+    }
+  },
+  headerArrival: {
+    [theme.breakpoints.down('sm')]: {
+      marginLeft: 5
+    }
+  },
+  headerAvailability: {
+
+    [theme.breakpoints.down('sm')]: {
+      marginLeft: 20
+    },
+    [theme.breakpoints.down('xs')]: {
+      marginLeft: 1
+    }
+  },
+  headerClasses: {
+    [theme.breakpoints.down('sm')]: {
+      marginLeft: 15
+    },
+    [theme.breakpoints.down('xs')]: {
+      marginLeft: 1
+    }
+  },
+  headerDeparture: {
+    [theme.breakpoints.down('sm')]: {
+      marginLeft: -15
+    },
+    [theme.breakpoints.down('xs')]: {
+      marginLeft: 1
+    }
   }
+  
   
 }))
 
@@ -470,16 +578,16 @@ const handleClickOpen = () => {
           
       </Box>
       <Box mt={2} className={classes.secondAppBar} component="div">
-        <Box  ml={1}><Grid container alignContent="center" justify="flex-start" spacing={1} >
+        <Box  ml={1}><Grid container alignContent="center" justify="flex-start" spacing={2} >
           
             <Grid className={classes.heading} item xs={12} sm={2}><Box fontWeight="fontWeightBold">Train Name & No.</Box></Grid>
-          <Grid item className={classes.heading} xs={12} sm={1} ><Box fontWeight="fontWeightBold">Departure</Box></Grid>
-        <Grid item xs={12} className={classes.heading} sm={1}><Box fontWeight="fontWeightBold">Arrival</Box></Grid>
-        <Grid item xs={12} className={classes.heading} sm={1} ><Box fontWeight="fontWeightBold">Duration</Box></Grid>
-        <Grid item xs={12} className={classes.heading} sm={2} ><Box fontWeight="fontWeightBold">Classes</Box></Grid>
-        <Grid item xs={12} className={classes.heading} sm={2} ><Box  fontWeight="fontWeightBold">Availability & Probability</Box></Grid>
-        <Grid item xs={12} className={classes.heading} sm={1} ><Box  fontWeight="fontWeightBold">Fare</Box></Grid>
-        <Grid item xs={12} className={classes.heading} sm={1} ><Box  fontWeight="fontWeightBold">Actions</Box></Grid>
+          <Grid item className={classes.heading} xs={12} sm={1} ><Box fontWeight="fontWeightBold"className={classes.headerDeparture}>Departure</Box></Grid>
+        <Grid item xs={12} className={classes.heading} sm={1}><Box fontWeight="fontWeightBold"className={classes.headerArrival}>Arrival</Box></Grid>
+        <Grid item xs={12} className={classes.heading} sm={1} ><Box fontWeight="fontWeightBold" className={classes.headerDuration}>Duration</Box></Grid>
+        <Grid item xs={12} className={classes.heading} sm={2} ><Box fontWeight="fontWeightBold" className={classes.headerClasses}>Classes</Box></Grid>
+        <Grid item xs={12} className={classes.heading} sm={2} ><Box  fontWeight="fontWeightBold" className={classes.headerAvailability}>Availability</Box></Grid>
+        <Grid item xs={12} className={classes.heading} sm={1} ><Box  fontWeight="fontWeightBold" className={classes.headerFare}>Fare</Box></Grid>
+        <Grid item xs={12} className={classes.heading} sm={1} ><Box  fontWeight="fontWeightBold"className={classes.headerAction}>Actions</Box></Grid>
         
           
         </Grid>
@@ -499,23 +607,23 @@ const handleClickOpen = () => {
               
             </Grid>
             <Grid item xs={12} sm={1} >
-              <Box mt={1}>
+              <Box mt={1} className={classes.departure}>
               <Box >7:00</Box>
                 <Box >Abj</Box>
               </Box>
             </Grid>
             <Grid item xs={12} sm={1}>
-              <Box mt={1}>
+              <Box mt={1} className={classes.arrival}>
               <Box >12:30</Box>
                 <Box >Lag</Box>
               </Box>
             </Grid>
             <Grid item xs={12} sm={1} >
-              <Box mt={1}>12.3Hrs</Box></Grid>
+              <Box mt={1} className={classes.duration}>12.3Hrs</Box></Grid>
             <Grid item xs={12} sm={2} >
               
               <Box mt={1} className={classes.classes}>
-              <ButtonGroup size="medium">
+              <ButtonGroup  fullWidth >
               <Button color="primary" variant="contained">AL</Button>
               <Button>AL</Button>
               <Button>AL</Button>
@@ -528,7 +636,7 @@ const handleClickOpen = () => {
               <Box mt={1} className={classes.action}>
                 <TrainPaymentDetails handleClickOpen={handleClickOpen} open={toggle} handleClose={handleClose}/>
               </Box>
-              <Box color="primary"  className={classes.avail}><Button>Next Availability</Button></Box>
+              <Box color="primary"  className={classes.avail}><Button className={classes.btnAvail}>Next Availability</Button></Box>
             </Grid>
         </Grid>
           </Box>

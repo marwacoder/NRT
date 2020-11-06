@@ -7,7 +7,7 @@ import {
   Badge, List, ListItem, ListItemIcon, HomeIcon,Person,
   ListItemText, Drawer, Hidden, KeyboardArrowUpIcon, Box,
   MenuIcon, AccountCircle, AppBar, Toolbar,BrightIcon,
-  IconButton, Typography, Fab, useScrollTrigger, DarkIcon, Grid
+  IconButton, Typography, Fab, useScrollTrigger, DarkIcon, Grid, Paper
 } from '../mui';
 import AuthContainer from '../Views/Auth/AuthContainer'
 import ReportIcon from '../Views/Train/SVG/Report'
@@ -150,21 +150,21 @@ const handleClick = (item, selectedIndex) => {
   const handleMobileMenuOpen = (event) => {
     setMobileMoreAnchorEl(event.currentTarget);
   };
-  const menu = [{ name: "TRAIN", link: '/train' },
-    { name: 'FLIGHTS', link: '/flight' },
-    { name: 'HOTELS' }, { name: 'BUS' }]
+  
   const mobileMenu =
     [{name: 'Dashboard', link: '/dashboard', icon: <HomeIcon/>},
       { name: 'Profile', link: '/profile', icon: <Person /> },
     { name: 'Activity', link: '/train', icon: <Timeline/>},
     { name: 'Report', link: '/reports', icon: <ReportIcon /> },
-    {name: 'Sign Out', icon: <ExitToApp/>}
+      { name: 'Sign Out', link: '/dashboard', icon: <ExitToApp /> },
+    
     ]
   
   const menuId = 'primary-search-account-menu';
   const drawer = (
+    <Paper elevation={0}>
     <Box >
-      <Box m={2} width={230} >
+      <Box my={2} pl={4} width={230} >
         
         <Box><Avater className={classes.avatar} /></Box>
         <Box mt={1} fontWeight="fontWeightBold" color="inherit">Usman Jibril</Box>
@@ -175,11 +175,11 @@ const handleClick = (item, selectedIndex) => {
         <List component="nav" >
                   {mobileMenu.map((item, index) => {
                     return <>
-                      <Box pl={2} fontWeight="fontWeightBold">
+                      <Box pl={1} fontWeight="fontWeightBold">
                       <MenuItem key={item.name}  button onClick={() => handleClickMobile(item, index)} selected={selected === index} >
                           <ListItemIcon>{item.icon}</ListItemIcon>
                           <ListItemText primary={item.name} />
-                      </MenuItem>
+                        </MenuItem>
                       </Box>
                       </>
                       
@@ -187,8 +187,26 @@ const handleClick = (item, selectedIndex) => {
                 </List>
       </Box>
       <Divider color="inherit" />
-      
-    </Box>
+      <Box my={2} ml={3} fontSize="24">
+        <Grid container justify="flex-start" alignContent="center" spacing={3}>
+          <Grid item><Box>Dark Mode</Box></Grid>
+          <Grid item><Box>
+            <IconButton
+                onClick={handleThemeChange}
+                  aria-label="toggle"
+                  size="small"
+              edge="start"
+              color="inherit"
+             
+            >{darkState ? <DarkIcon /> : <BrightIcon />}</IconButton>
+            </Box></Grid>
+        </Grid>
+          
+            
+        
+      </Box>
+      </Box>
+      </Paper>
   );
   const renderMenu = (
     <Menu

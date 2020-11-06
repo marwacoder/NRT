@@ -63,6 +63,11 @@ const useStyles = makeStyles(theme => ({
   textField: {
     width: '38ch',
   },
+  bookNowBtn: {
+    [theme.breakpoints.down('sm')]: {
+      fontSize: 12
+    }
+  }
     }));
 export default function TrainPaymentDetails(props) {
     const classes = useStyles();
@@ -152,16 +157,6 @@ export default function TrainPaymentDetails(props) {
                           </Grid>
                       </Box>
                       
-                      
-                      
-                      {/* <Typography>Class</Typography>
-                      <Typography>From</Typography>
-                      <Typography>To</Typography>
-                      <Typography>Departure</Typography>
-                      <Typography>Arrival</Typography>
-                      <Typography>Duration</Typography>
-                      <Typography>Fare</Typography>
-                      <Typography>#{"50"}</Typography> */}
         </DialogContent>
                   <DialogActions>
                           
@@ -170,7 +165,7 @@ export default function TrainPaymentDetails(props) {
         </DialogActions>
               </Dialog>
           </Paper>
-          <Button variant="outlined" color="secondary" onClick={handleClickOpen}>Book Now</Button>
+          <Button variant="outlined" className={classes.bookNowBtn} color="secondary" onClick={handleClickOpen}>Book Now</Button>
     </Box>
   );
 }
