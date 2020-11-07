@@ -88,7 +88,8 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('sm')]: {
       
       fontSize: 14,
-      marginLeft: 50
+      marginLeft: 50,
+      marginTop: 16,
 
     },
     [theme.breakpoints.down('xs')]: {
@@ -125,9 +126,10 @@ const useStyles = makeStyles((theme) => ({
   fare: {
     marginTop: '30px',
     [theme.breakpoints.down('sm')]: {
-      marginTop: 37,
+      marginTop: 16,
       
-    }
+    },
+    
   },
   action: {
     marginTop: '23px',
