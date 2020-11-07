@@ -83,7 +83,15 @@ fontSize: 12
     [theme.breakpoints.up('sm')]: {
       display: 'none'
     },
+    
   },
+  moreIcon: {
+    display: 'none',
+    [theme.breakpoints.down('xs')]: {
+      display: 'flex',
+      marginLeft: -120
+    },
+  }
 }));
 
 const Navbar = (props) => {
@@ -265,6 +273,7 @@ const handleClick = (item, selectedIndex) => {
   );
 
   return (
+    <Paper elevation={0}>
     <div className={classes.grow}>
       <CssBaseline />
       <AppBar color="primary">
@@ -342,8 +351,9 @@ const handleClick = (item, selectedIndex) => {
               </ListItem>
               
             </List> */}
-          </Box>
-          <div className={classes.sectionMobile}>
+            </Box>
+            
+          <div className={classes.moreIcon}>
             <IconButton
               aria-label="show more"
               aria-controls={mobileMenuId}
@@ -403,7 +413,8 @@ const handleClick = (item, selectedIndex) => {
           <KeyboardArrowUpIcon style={{color: '#fff'}}/>
         </Fab>
       </ScrollTop>
-    </div>
+      </div>
+      </Paper>
   );
 }
 

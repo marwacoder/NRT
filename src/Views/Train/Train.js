@@ -84,6 +84,7 @@ const useStyles = makeStyles((theme) => ({
   
   availProb: {
     marginTop: '23px',
+    marginLeft: 60,
     [theme.breakpoints.down('sm')]: {
       
       fontSize: 14,
@@ -130,6 +131,7 @@ const useStyles = makeStyles((theme) => ({
   },
   action: {
     marginTop: '23px',
+    marginLeft: 10,
     [theme.breakpoints.down('sm')]: {
       marginTop: 19,
       width: 150
@@ -176,7 +178,7 @@ const useStyles = makeStyles((theme) => ({
     }
   },
   headerAvailability: {
-
+    marginLeft: 60,
     [theme.breakpoints.down('sm')]: {
       marginLeft: 20
     },
