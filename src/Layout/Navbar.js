@@ -21,7 +21,15 @@ const useStyles = makeStyles((theme) => ({
     position: 'fixed',
     bottom: theme.spacing(2),
     right: theme.spacing(2),
+    
+    // '&$focusVisible': {
+    //   backgroundColor: theme.palette.action.selected,
+    // },
+    // '&$Selected, &$Selected:hover': {
+    //   backgroundColor: theme.palette.action.selected,
+    // }
   },
+
   grow: {
     flexGrow: 1,
   },
@@ -112,11 +120,11 @@ const Navbar = (props) => {
   
   const [anchorElMenu, setAnchorElMenu] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
-
+  const [trainMoreAnchorEl, setTrainMoreAnchorEl] = React.useState(null);
   const isMenuOpen = Boolean(anchorEl);
   const open = Boolean(anchorElMenu);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
-
+  const isTrainMenuOpen = Boolean(trainMoreAnchorEl);
 
   const { container, history } = props
   
@@ -143,6 +151,16 @@ const handleClick = (item, selectedIndex) => {
   const handleMobileMenuClose = () => {
     setMobileMoreAnchorEl(null);
   };
+  const handleMobileMenuOpen = (event) => {
+    setMobileMoreAnchorEl(event.currentTarget);
+  };
+
+  const handleTrainMenuClose = () => {
+    setTrainMoreAnchorEl(null);
+  };
+  const handleTrainMenuOpen = (event) => {
+    setTrainMoreAnchorEl(event.currentTarget);
+  };
 
   const handleDrawerToggle = () => {
         setMobileOpen(mobileOpen=> !mobileOpen)
@@ -155,9 +173,7 @@ const handleClick = (item, selectedIndex) => {
     handleMobileMenuClose();
   };
 
-  const handleMobileMenuOpen = (event) => {
-    setMobileMoreAnchorEl(event.currentTarget);
-  };
+  
   
   const mobileMenu =
     [{name: 'Dashboard', link: '/dashboard', icon: <HomeIcon/>},
@@ -168,6 +184,36 @@ const handleClick = (item, selectedIndex) => {
     
     ]
   
+  const trainMenuId = 'train-menu-menu';
+  let menu = [];
+
+  menu.push(data.modules.pages.map((item, index) => item.children));
+  const eachMenu = menu[0][0].map((item, index) => item.name);
+  console.log(menu[0][0].map((item, index)=> item.name), 'menu')
+  const renderTrainMenu = (
+    <Menu
+      anchorEl={trainMoreAnchorEl}
+      anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+      id={trainMenuId}
+      keepMounted
+      transformOrigin={{ vertical: 'top', horizontal: 'right' }}
+      open={isTrainMenuOpen}
+      onClose={handleTrainMenuClose}
+    >
+      {menu[0][0].map((item, index) => {
+        return (
+          <MenuItem key={item.link} button onClick={() => handleClick(item, index)} selected={selected === index}>
+        <IconButton>{item.icon}</IconButton>
+        <ListItemText primary={item.name}/>
+          </MenuItem>
+        );
+        
+          
+      })}
+      
+
+    </Menu>
+  );
   const menuId = 'primary-search-account-menu';
   const drawer = (
     <Paper elevation={0}>
@@ -188,6 +234,7 @@ const handleClick = (item, selectedIndex) => {
                           <ListItemIcon>{item.icon}</ListItemIcon>
                           <ListItemText primary={item.name} />
                         </MenuItem>
+
                       </Box>
                       </>
                       
@@ -299,22 +346,35 @@ const handleClick = (item, selectedIndex) => {
          
             <div className={classes.appBarLink}>
               
-            <Hidden xsDown={true} implementation="css">
-              
-                <Box ml={-30}>
-                <List component="nav" className={classes.navLinks}>
-                  {data.modules.web.map((item, index) => {
+              <Hidden xsDown={true} implementation="css">
+                <Box ml={-30}> 
+                <List className={classes.navLinks}>
+                  
+                  {data.modules.pages.map((item, index) => {
                     return <>
-                      <Box pl={2}>
-                      <MenuItem key={item.name}  button display="inline" onClick={() => handleClick(item, index)} selected={selected === index}>
+                      
+                      <MenuItem  key={item.name} button onClick={item.children ? handleTrainMenuOpen : () => handleClick(item, index)} selected={selected === index} >
                         <ListItemText primary={item.name} />
                       </MenuItem>
-                      </Box>
-                      </>
-                      
-                  })}
-                </List>
-              </Box>
+                    </>
+                    
+              })}
+         
+             
+
+                  </List>
+                  </Box>
+          <div className={classes.sectionMobile}>
+            <IconButton
+              aria-label="show more"
+              aria-controls={mobileMenuId}
+              aria-haspopup="true"
+              onClick={handleMobileMenuOpen}
+              color="inherit"
+            >
+              <MoreIcon />
+            </IconButton>
+          </div>
                  </Hidden>
 
             </div>
@@ -405,7 +465,7 @@ const handleClick = (item, selectedIndex) => {
         </div>
      
       <AuthContainer handleClose={handleClosse} handleOpen={handleClickOpen} open={toggle}/>
-      
+      {renderTrainMenu}
       {renderMobileMenu}
       {renderMenu}
       <ScrollTop {...props}>
