@@ -220,7 +220,7 @@ const handleClick = (item, selectedIndex) => {
     <Box >
       <Box my={2} pl={4} width={230} >
         
-        <Box><Avater className={classes.avatar} /></Box>
+        <Box mr={4}><Avater src={require('../assets/profilePic.jpg')} className={classes.avatar} /></Box>
         <Box mt={1} fontWeight="fontWeightBold" color="inherit">Usman Jibril</Box>
       </Box>
       
@@ -336,7 +336,7 @@ const handleClick = (item, selectedIndex) => {
             <MenuIcon />
             </IconButton>
           </Box>
-          
+         
            <Typography  className={classes.title} variant="h6" noWrap>
               NRT
           </Typography>
@@ -363,7 +363,9 @@ const handleClick = (item, selectedIndex) => {
              
 
                   </List>
-                  </Box>
+                  
+                </Box>
+                
           <div className={classes.sectionMobile}>
             <IconButton
               aria-label="show more"
@@ -379,7 +381,8 @@ const handleClick = (item, selectedIndex) => {
 
             </div>
           
-          <Box className={classes.grow} />
+            <Box className={classes.grow} />
+           
           <Box className={classes.sectionDesktop}>
             <IconButton
                 onClick={handleThemeChange}
@@ -388,7 +391,8 @@ const handleClick = (item, selectedIndex) => {
               edge="start"
               color="inherit"
              
-            >
+              >
+                 
              { darkState ?  <DarkIcon /> : <BrightIcon /> }
                 </IconButton>
            

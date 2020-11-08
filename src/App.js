@@ -7,7 +7,7 @@ import Train from './Views/Train/Train';
 import Home from './Views/Home/Home';
 import Flight from './Views/Flight/Flight';
 import Profile from './Views/Profile/Profile';
-import Report from './Views/Report/Report';
+import Reports from './Views/Report/Report';
 import { deepOrange, grey, indigo, amber, } from '@material-ui/core/colors';
 import { TransitionGroup, CSSTransition} from 'react-transition-group';
 import Muli from './fonts/Muli-Regular.ttf';
@@ -108,9 +108,9 @@ const App = () => {
           />
           <Route exact path="/dashboard" render={props => <Home {...props}/>}/>
           <Route  path='/train' render={props => <Train darkState={darkState} {...props} />} />
-            <Route path='flight' render={props => <Flight {...props} />} />
-            <Route path='profile' render={props => <Profile {...props} />} />
-            <Route  path='report' render={props => <Report {...props}/>} />
+            <Route path='/flight' render={props => <Flight {...props} />} />
+            <Route path='/profile' render={props => <Profile {...props} />} />
+            <Route  path='/reports' render={props => <Reports {...props}/>} />
           </Switch>
         
         </Router>

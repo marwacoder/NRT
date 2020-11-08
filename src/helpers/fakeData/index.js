@@ -7,7 +7,7 @@ const data = {
             {
                 name: "TRAIN", children: [
                     { name: 'Activity', link: '/train', icon: <Timeline/> },
-                    {name: 'Report', link: '/report', icon: <ReportIcon/>}
+                    {name: 'Report', link: '/reports', icon: <ReportIcon/>}
             ] },
             { name: 'FLIGHTS', link: '/flight'},
             { name: 'HOTELS' }, { name: 'BUS' }
