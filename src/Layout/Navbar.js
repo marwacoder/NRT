@@ -6,11 +6,11 @@ import {
   MenuItem, Zoom, CssBaseline, Avater, ExitToApp,
   Badge, List, ListItem, ListItemIcon, HomeIcon,Person,
   ListItemText, Drawer, Hidden, KeyboardArrowUpIcon, Box,
-  MenuIcon, AccountCircle, AppBar, Toolbar,BrightIcon,
+  MenuIcon, AccountCircle, AppBar, Toolbar,BrightIcon,SwipeableDrawer,
   IconButton, Typography, Fab, useScrollTrigger, DarkIcon, Grid, Paper
 } from '../mui';
 import AuthContainer from '../Views/Auth/AuthContainer'
-import ReportIcon from '../Views/Train/SVG/Report'
+import {DarkReport, LightReport} from '../Views/Train/SVG/Report'
 import TrainIcon from '../Layout/TrainIcon';
 import data from '../helpers/fakeData';
 
@@ -52,7 +52,7 @@ fontSize: 12
   },
   drawerPaper: {
     width: drawerWidth,
-    backgroundColor: '#fff'
+    backgroundColor: theme.palette.background.paper
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -97,7 +97,7 @@ fontSize: 12
     display: 'none',
     [theme.breakpoints.down('xs')]: {
       display: 'flex',
-      marginLeft: -120
+      marginLeft: 0
     },
   }
 }));
@@ -179,17 +179,15 @@ const handleClick = (item, selectedIndex) => {
     [{name: 'Dashboard', link: '/dashboard', icon: <HomeIcon/>},
       { name: 'Profile', link: '/profile', icon: <Person /> },
     { name: 'Activity', link: '/train', icon: <Timeline/>},
-    { name: 'Report', link: '/reports', icon: <ReportIcon /> },
+      { name: 'Report', link: '/reports', icon: darkState ? <DarkReport/> : <LightReport/> },
       { name: 'Sign Out', link: '/dashboard', icon: <ExitToApp /> },
     
     ]
   
   const trainMenuId = 'train-menu-menu';
   let menu = [];
-
+    
   menu.push(data.modules.pages.map((item, index) => item.children));
-  const eachMenu = menu[0][0].map((item, index) => item.name);
-  console.log(menu[0][0].map((item, index)=> item.name), 'menu')
   const renderTrainMenu = (
     <Menu
       anchorEl={trainMoreAnchorEl}
@@ -216,7 +214,6 @@ const handleClick = (item, selectedIndex) => {
   );
   const menuId = 'primary-search-account-menu';
   const drawer = (
-    <Paper elevation={0}>
     <Box >
       <Box my={2} pl={4} width={230} >
         
@@ -261,7 +258,6 @@ const handleClick = (item, selectedIndex) => {
         
       </Box>
       </Box>
-      </Paper>
   );
   const renderMenu = (
     <Menu
@@ -434,9 +430,11 @@ const handleClick = (item, selectedIndex) => {
       <Toolbar id="back-to-top-anchor" />
 <div className={classes.sectionMobile}>
         <nav className={classes.drawer} aria-label="mailbox folders">
-                    {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
-                    <Hidden smUp implementation="css">
-                        <Drawer
+            {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
+           
+            <Hidden smUp implementation="css">
+              
+                        <SwipeableDrawer
                             
                             container={container}
                             variant="temporary"
@@ -449,21 +447,13 @@ const handleClick = (item, selectedIndex) => {
                             ModalProps={{
                                 keepMounted: true, // Better open performance on mobile.
                             }}
-                        >
+              >
+                
                          {drawer}
-                        </Drawer>
+                </SwipeableDrawer>
+                
                     </Hidden>
-                    <Hidden xsDown implementation="css">
-                        <Drawer
-                            classes={{
-                                paper: classes.drawerPaper,
-                            }}
-                            variant="permanent"
-                            open
-                        >
-                          
-                        </Drawer>
-                    </Hidden>
+                   
           </nav>
           
         </div>

@@ -104,11 +104,12 @@ import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Avater from '@material-ui/core/Avatar';
 import Timeline from '@material-ui/icons/Timeline'
-
+import EditIcon from '@material-ui/icons/Edit';
+import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 
 export {
-    KeyboardArrowUpIcon, Zoom,PlaceIcon,MuiDialogContent,Avater,Timeline,MuiDialogActions,BrightIcon,DarkIcon,NavigateBefore,NavigateNext,ButtonGroup,
-    DeleteForever,MuiDialogTitle, InputLabel,OutlinedInput,makeStyles,Paper,Person,MoreIcon,NotificationsIcon,ExitToApp,
+    KeyboardArrowUpIcon, Zoom,PlaceIcon,MuiDialogContent,SwipeableDrawer,Avater,Timeline,MuiDialogActions,BrightIcon,DarkIcon,NavigateBefore,NavigateNext,ButtonGroup,
+    DeleteForever,MuiDialogTitle, InputLabel,OutlinedInput,makeStyles,Paper,Person,MoreIcon,NotificationsIcon,ExitToApp,EditIcon,
     AppBar, ListSubheader, List, ListItem, ListItemIcon, ListItemText, Collapse, SendIcon, CloseIcon,Settings,Box,ArrowDropDownIcon,
     InboxIcon, DraftsIcon, ExpandLess, ExpandMore, Grid, Card, CardHeader, Hidden,Pages,History,Dialog,Badge,DateRangeIcon,
     CardContent, CardActions, MenuIcon, Menu, MenuItem, TextField, DeleteIcon, Icon, Fab, ArrowForward,useScrollTrigger,

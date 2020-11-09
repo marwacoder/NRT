@@ -63,14 +63,18 @@ const useStyles = makeStyles((theme) => ({
       
     }
   },
+  tn: {
+    [theme.breakpoints.down('sm')]: {
+      marginTop: 0
+      
+      
+    }
+  },
   trainBookInfo: {
     marginTop: '10px',
+
     [theme.breakpoints.down('xs')]: {
-      marginTop: '-20px',
-      marginLeft: '170px'
-    },
-    [theme.breakpoints.down('xs')]: {
-      marginTop: '-525px',
+      marginTop: '-513px',
       marginLeft: '170px'
     }
   },
@@ -80,7 +84,10 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('sm')]: {
       marginBottom: '30px'
     }
-    },
+  },
+  card: {
+    backgroundColor: theme.palette.background.paper
+  },
   
   availProb: {
     marginTop: '23px',
@@ -89,7 +96,7 @@ const useStyles = makeStyles((theme) => ({
       
       fontSize: 14,
       marginLeft: 50,
-      marginTop: 16,
+      marginTop: 25,
 
     },
     [theme.breakpoints.down('xs')]: {
@@ -115,7 +122,7 @@ const useStyles = makeStyles((theme) => ({
   },
   departure: {
     [theme.breakpoints.down('sm')]: {
-      marginTop: 16
+      marginTop: 20
     }
   },
   arrival: {
@@ -126,7 +133,7 @@ const useStyles = makeStyles((theme) => ({
   fare: {
     marginTop: '30px',
     [theme.breakpoints.down('sm')]: {
-      marginTop: 16,
+      marginTop: 40,
       
     },
     
@@ -135,7 +142,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: '23px',
     marginLeft: 10,
     [theme.breakpoints.down('sm')]: {
-      marginTop: 19,
+      marginTop: 15,
       width: 150
     },
     [theme.breakpoints.down('xs')]: {
@@ -228,7 +235,11 @@ const handleClickOpen = () => {
   const handleMenuClose = () => {
     setMenuAnchorEl(null);
   };
+
+
+  
   const menuId = 'primary-search-account-menu';
+
   const renderMenu = (
     <Menu
       anchorEl={MenuAnchorEl}
@@ -260,7 +271,7 @@ const handleClickOpen = () => {
       
       <Box mb={2}>
         
-        <Card  elevation={0}  variant="outlined">
+        <Paper   elevation={0}  variant="outlined">
           <Box mx={2}  >
             <AppBar  color="primary" position="static" >
           <Toolbar>
@@ -276,7 +287,7 @@ const handleClickOpen = () => {
            
            <Grid container justify="center"  alignItems="center" item   spacing={2}>
          <Grid item xs sm={4}>
-                <Paper elevation={1} >
+                <Card elevation={1} >
                   <Grid container item xs={4}  direction="row" justify="flex-start" alignItems="center">
                     <Grid item xs={6}>
                         <PlaceIcon color="primary" className={classes.icons}/>
@@ -294,10 +305,10 @@ const handleClickOpen = () => {
                     </Grid>
                     
                   </Grid>
-          </Paper>
+          </Card>
         </Grid>
         <Grid item xs sm={4}>
-                <Paper>
+                <Card>
                   <Grid container item xs={4}  direction="row" justify="flex-start" alignItems="center">
                     <Grid item xs={6}>
                        <PlaceIcon color="primary" className={classes.icons}/>
@@ -315,10 +326,10 @@ const handleClickOpen = () => {
                     </Grid>
                     
                   </Grid>
-          </Paper>
+          </Card>
         </Grid>
         <Grid item xs sm={4}>
-                <Paper>
+                <Card>
                   <Grid container item xs={4}  direction="row" justify="flex-start" alignItems="center">
                     <Grid item xs={6}>
                        <DateRangeIcon color="primary" className={classes.icons}/>
@@ -336,7 +347,7 @@ const handleClickOpen = () => {
                     </Grid>
                     
                   </Grid>
-          </Paper>
+          </Card>
               </Grid>
               
         </Grid>
@@ -344,7 +355,7 @@ const handleClickOpen = () => {
             {/* FIRST GRID END */}
         <Grid container justify="center"  alignItems="center" item   spacing={2}>
          <Grid item xs sm={6} md={3}>
-                <Paper>
+                <Card>
                   <Grid container item xs={4}  direction="row" justify="flex-start" alignItems="center">
                     
                     <Grid  item container xs={6} direction="column" justify="flex-start" alignItems="center">
@@ -370,10 +381,10 @@ const handleClickOpen = () => {
                     </Grid>
                     
                   </Grid>
-          </Paper>
+          </Card>
         </Grid>
         <Grid item xs sm={6} md={3}>
-                <Paper >
+                <Card >
                   <Grid container item xs={4} direction="row" justify="flex-start" alignItems="center">
                     
                     <Grid  item container xs={6} direction="column" justify="flex-start" alignItems="center">
@@ -397,10 +408,10 @@ const handleClickOpen = () => {
                     </Grid>
                     
                   </Grid>
-          </Paper>
+          </Card>
         </Grid>
         <Grid item xs sm={6} md={3}>
-                <Paper >
+                <Card >
                   <Grid container item xs={4} direction="row" justify="flex-start" alignItems="center">
                     
                     <Grid  item container xs={6} direction="column" justify="flex-start" alignItems="center">
@@ -424,10 +435,10 @@ const handleClickOpen = () => {
                     </Grid>
                     
                   </Grid>
-          </Paper>
+          </Card>
               </Grid>
               <Grid item xs sm={6} md={3}>
-                <Paper >
+                <Card >
                   <Grid container item xs={4} direction="row" justify="flex-start" alignItems="center">
                     
                     <Grid  item container xs={6} direction="column" justify="flex-start" alignItems="center">
@@ -451,7 +462,7 @@ const handleClickOpen = () => {
                     </Grid>
                     
                   </Grid>
-          </Paper>
+          </Card>
               </Grid>
               
         </Grid>
@@ -546,7 +557,7 @@ const handleClickOpen = () => {
         </Grid>
           </Grid>
           </Box>
-          </Card>
+          </Paper>
           </Box>
       <Box>
         <Box   >
@@ -581,7 +592,8 @@ const handleClickOpen = () => {
           </Box>
           
       </Box>
-      <Box mt={2} className={classes.secondAppBar} component="div">
+      <Box mt={2}>
+      <Paper  elevation={0} variant="outlined"  >
         <Box  ml={1}><Grid container alignContent="center" justify="flex-start" spacing={2} >
           
             <Grid className={classes.heading} item xs={12} sm={2}><Box fontWeight="fontWeightBold">Train Name & No.</Box></Grid>
@@ -598,13 +610,14 @@ const handleClickOpen = () => {
         </Box>
         
         
-      </Box>
+        </Paper>
+        </Box>
       <Box className={classes.trainBookInfo}>
         <Paper elevation={0} variant="outlined" >
          <Box ml={1}><Grid container alignContent="center" spacing={1} justify="center" >
           
-            <Grid item xs={12} sm={2} >
-              <Box mt={1}>
+            <Grid item xs={12}  sm={2} >
+              <Box mt={1} className={classes.tn}>
                 <Box >Echo</Box>
               <Box >#54356</Box>
               </Box>

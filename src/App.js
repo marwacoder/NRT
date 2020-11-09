@@ -17,7 +17,7 @@ import Muli from './fonts/Muli-Regular.ttf';
 
 
 export const history = createBrowserHistory();
-  
+
 
 
 
@@ -35,12 +35,13 @@ const muli = {
     'U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF',
 };
 const App = () => {
+  const darkMode = React.createContext()
   const [darkState, setDarkState] = React.useState(false);
   const darkTheme = darkState ? "dark" : "light";
   const primaryColor = darkState ? grey[900] : indigo[900];
   const secondaryColor = darkState ? deepOrange[900] : amber[900];
   const [route, setRoute] = React.useState(false);
-
+  
 
   let theme = createMuiTheme({
     typography: {
