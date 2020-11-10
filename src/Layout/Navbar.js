@@ -4,7 +4,7 @@ import {
   makeStyles, MoreIcon, MailIcon,
   NotificationsIcon, Menu, Divider,Timeline,
   MenuItem, Zoom, CssBaseline, Avater, ExitToApp,
-  Badge, List, ListItem, ListItemIcon, HomeIcon,Person,
+  Badge, List, EditOutLinedIcon, ListItemIcon, HomeIcon,Person,
   ListItemText, Drawer, Hidden, KeyboardArrowUpIcon, Box,
   MenuIcon, AccountCircle, AppBar, Toolbar,BrightIcon,SwipeableDrawer,
   IconButton, Typography, Fab, useScrollTrigger, DarkIcon, Grid, Paper
@@ -69,8 +69,8 @@ fontSize: 12
     padding: theme.spacing(3),
   },
   avatar: {
-    height: 50,
-    width: 50
+    height: 80,
+    width: 80
   },
   header: {
   
@@ -97,7 +97,7 @@ fontSize: 12
     display: 'none',
     [theme.breakpoints.down('xs')]: {
       display: 'flex',
-      marginLeft: 0
+      marginLeft: -250
     },
   }
 }));
@@ -215,10 +215,34 @@ const handleClick = (item, selectedIndex) => {
   const menuId = 'primary-search-account-menu';
   const drawer = (
     <Box >
-      <Box my={2} pl={4} width={230} >
+      <Box mx={4} mt={3} width={230} >
+        <Grid container justify="flex-start" alignContent="center" >
+          <Grid item >
+          <Box ><Avater src={require('../assets/profilePic.jpg')} className={classes.avatar} /></Box>
         
-        <Box mr={4}><Avater src={require('../assets/profilePic.jpg')} className={classes.avatar} /></Box>
-        <Box mt={1} fontWeight="fontWeightBold" color="inherit">Usman Jibril</Box>
+          </Grid>
+          <Grid item container justify="flex-start" alignContent="space-between" spacing={2}>
+            <Grid item>
+              <Box mt={2} fontWeight="fontWeightBold" color="inherit">Usman Jibril</Box>
+            </Grid>
+            <Grid item>
+              <Box ml={4}>
+          <IconButton
+            aria-label="show more"
+              
+              aria-haspopup="true"
+              
+              color="default"
+                          >
+            <EditOutLinedIcon />
+          </IconButton>
+        </Box>
+            </Grid>
+            
+          </Grid>
+        </Grid>
+        
+        
       </Box>
       
       <Divider color="inherit" />
@@ -239,24 +263,14 @@ const handleClick = (item, selectedIndex) => {
                 </List>
       </Box>
       <Divider color="inherit" />
-      <Box my={2} ml={3} fontSize="24">
-        <Grid container justify="flex-start" alignContent="center" spacing={3}>
-          <Grid item><Box>Dark Mode</Box></Grid>
-          <Grid item><Box>
-            <IconButton
-                onClick={handleThemeChange}
-                  aria-label="toggle"
-                  size="small"
-              edge="start"
-              color="inherit"
-             
-            >{darkState ? <DarkIcon /> : <BrightIcon />}</IconButton>
-            </Box></Grid>
-        </Grid>
-          
-            
-        
-      </Box>
+      <List>
+        <Box pl={1} fontWeight="fontWeightBold">
+          <MenuItem button onClick={handleThemeChange}>
+            <ListItemText primary='Dark Mode' />
+            <ListItemIcon>{darkState ? <DarkIcon /> : <BrightIcon />}</ListItemIcon>
+          </MenuItem>
+            </Box>
+      </List>
       </Box>
   );
   const renderMenu = (
@@ -432,10 +446,11 @@ const handleClick = (item, selectedIndex) => {
         <nav className={classes.drawer} aria-label="mailbox folders">
             {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
            
-            <Hidden smUp implementation="css">
+            <Hidden smUp>
               
-                        <SwipeableDrawer
-                            
+              <SwipeableDrawer
+                
+                            onOpen={handleDrawerToggle}
                             container={container}
                             variant="temporary"
                             anchor={'left'}

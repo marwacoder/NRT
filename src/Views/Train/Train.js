@@ -575,7 +575,7 @@ const handleClickOpen = () => {
                 </Grid>
                   
                     <Grid item xs={3} >
-                      <DateRangeIcon color="white" style={{ fontSize: 30 }} />
+                      <DateRangeIcon color="#fff" style={{ fontSize: 30 }} />
                     </Grid>
                     <Grid item xs={3}><Box width={90}>Fri Nov, 2020</Box></Grid>
                     

@@ -18,7 +18,7 @@ import Muli from './fonts/Muli-Regular.ttf';
 
 export const history = createBrowserHistory();
 
-
+const darkMode = React.createContext()
 
 
 const muli = {
@@ -35,7 +35,6 @@ const muli = {
     'U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF',
 };
 const App = () => {
-  const darkMode = React.createContext()
   const [darkState, setDarkState] = React.useState(false);
   const darkTheme = darkState ? "dark" : "light";
   const primaryColor = darkState ? grey[900] : indigo[900];
@@ -66,7 +65,7 @@ const App = () => {
     palette: {
       type: darkTheme,
       primary: {
-        main: primaryColor,
+        main: primaryColor
       },
       secondary: {
         main: secondaryColor,
@@ -88,7 +87,7 @@ const App = () => {
   theme = responsiveFontSizes(theme);
 
   const handleThemeChange = () => {
-    setDarkState(!darkState);
+    setDarkState(prev=> !prev);
   }
   const handleMotion = () => {
     setRoute((prev) => !prev)
@@ -106,7 +105,8 @@ const App = () => {
         exact
         from="/"
         to="/dashboard"
-          />
+            />
+            
           <Route exact path="/dashboard" render={props => <Home {...props}/>}/>
           <Route  path='/train' render={props => <Train darkState={darkState} {...props} />} />
             <Route path='/flight' render={props => <Flight {...props} />} />

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const TrainIcon = () => {
     return (
         <div>
-       <svg xmlns="http://www.w3.org/2000/svg"  xmlnsXlink="http://www.w3.org/1999/xlink" xmlnsSvgjs="http://svgjs.com/svgjs" version="1.1" width="45" height="45" x="0" y="0" viewBox="0 0 480 480" enable-background="enable-background:new 0 0 512 512" xmlSpace="preserve"><g>
+       <svg xmlns="http://www.w3.org/2000/svg"  xmlnsXlink="http://www.w3.org/1999/xlink" xmlnssvgjs="http://svgjs.com/svgjs" version="1.1" width="45" height="45" x="0" y="0" viewBox="0 0 480 480" enableBackground="enableBackground:new 0 0 512 512" xmlSpace="preserve"><g>
 <g xmlns="http://www.w3.org/2000/svg">
 	<g>
 		<path d="M160,352H80c-4.418,0-8,3.582-8,8s3.582,8,8,8h80c4.418,0,8-3.582,8-8S164.418,352,160,352z" fill="#ffffff" data-original="#000000" />
