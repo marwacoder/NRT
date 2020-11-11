@@ -53,12 +53,13 @@ const useStyles = makeStyles((theme) => ({
     zIndex: 50,
     transform: 'translate(-50%, -50%)',
     [theme.breakpoints.down('xs')]: {
-        left: '54%'
+      left: '54%',
+      top: '26%'
     }
     },
     btn: {
         [theme.breakpoints.down('xs')]: {
-            marginTop: -30
+            marginTop: -10
         }
     }
 }));
@@ -72,20 +73,20 @@ export default function RecipeReviewCard() {
 }
 
     return (
-        <Box mx={{ xs: 1, sm: 8, md: 38 }} my={2}>
+        <Box mx={{ xs: 2, sm: 8, md: 38 }} my={2}>
             
             <form>
                 <Box >
                     <Box className={classes.editIcon}><IconButton
                   aria-label="toggle"
-                  size="small"
+                  size="large"
               edge="start"
               color="inherit"
              
               ><PhotoCameraIcon/></IconButton></Box>
                     
                     
-                <Grid container justify='center' alignContent="center" spacing={2}>
+                <Grid container justify='center' alignContent="center" spacing={1}>
                         <Grid item container justify='center' alignContent="center" >
                             <Grid item>
                                 <Box >

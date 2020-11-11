@@ -3,7 +3,7 @@ import React from 'react';
 import {
   makeStyles, Fade, PlaceIcon, DateRangeIcon, Button,
   Paper, Card, Menu, MenuItem, NavigateNext, ButtonGroup,
-  ArrowDropDownIcon, IconButton, Typography, Grow,
+  ArrowDropDownIcon, IconButton, Typography,
   Box, Grid, AppBar, Toolbar, NavigateBefore,
 } from '../../mui';
 import { indigo } from '@material-ui/core/colors';
