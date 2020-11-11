@@ -1,14 +1,15 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import PropTypes from 'prop-types';
 import {
   makeStyles, MoreIcon, MailIcon,
   NotificationsIcon, Menu, Divider,Timeline,
   MenuItem, Zoom, CssBaseline, Avater, ExitToApp,
   Badge, List, EditOutLinedIcon, ListItemIcon, HomeIcon,Person,
-  ListItemText, Drawer, Hidden, KeyboardArrowUpIcon, Box,
+  ListItemText, Hidden, KeyboardArrowUpIcon, Box,
   MenuIcon, AccountCircle, AppBar, Toolbar,BrightIcon,SwipeableDrawer,
   IconButton, Typography, Fab, useScrollTrigger, DarkIcon, Grid, Paper
 } from '../mui';
+import { Redirect } from 'react-router-dom'
 import AuthContainer from '../Views/Auth/AuthContainer'
 import {DarkReport, LightReport} from '../Views/Train/SVG/Report'
 import TrainIcon from '../Layout/TrainIcon';
@@ -133,14 +134,14 @@ const Navbar = (props) => {
 
 const handleClick = (item, selectedIndex) => {
      
-  history.push(item.link);
+  history.replace(item.link);
   setSelected(selectedIndex)
 
   }
   const handleClickMobile = (item, selectedIndex) => {
-     
+     handleDrawerToggle(); 
   history.push(item.link);
-  handleDrawerToggle();
+ 
   setSelected(selectedIndex)
 
     }
@@ -176,10 +177,11 @@ const handleClick = (item, selectedIndex) => {
   
   
   const mobileMenu =
-    [{name: 'Dashboard', link: '/dashboard', icon: <HomeIcon/>},
+    [
+      { name: 'Dashboard', link: '/dashboard', icon: <HomeIcon /> },
       { name: 'Profile', link: '/profile', icon: <Person /> },
     { name: 'Activity', link: '/train', icon: <Timeline/>},
-      { name: 'Report', link: '/reports', icon: darkState ? <DarkReport/> : <LightReport/> },
+      { name: 'Reports', link: '/reports', icon: darkState ? <DarkReport/> : <LightReport/> },
       { name: 'Sign Out', link: '/dashboard', icon: <ExitToApp /> },
     
     ]
@@ -199,8 +201,9 @@ const handleClick = (item, selectedIndex) => {
       onClose={handleTrainMenuClose}
     >
       {menu[0][0].map((item, index) => {
+        console.log(item.link,'item', index,'index')
         return (
-          <MenuItem key={item.link} button onClick={() => handleClick(item, index)} selected={selected === index}>
+          <MenuItem key={index} button onClick={() => handleClick(item, index)} selected={selected === index}>
         <IconButton>{item.icon}</IconButton>
         <ListItemText primary={item.name}/>
           </MenuItem>
@@ -229,7 +232,7 @@ const handleClick = (item, selectedIndex) => {
               <Box ml={4}>
           <IconButton
             aria-label="show more"
-              
+              onClick={ handleDrawerToggle}
               aria-haspopup="true"
               
               color="default"
@@ -248,10 +251,11 @@ const handleClick = (item, selectedIndex) => {
       <Divider color="inherit" />
       <Box>
         <List component="nav" >
-                  {mobileMenu.map((item, index) => {
+          {mobileMenu.map((item, index) => {
+                    console.log(item, 'item...')
                     return <>
                       <Box pl={1} fontWeight="fontWeightBold">
-                      <MenuItem key={item.name}  button onClick={() => handleClickMobile(item, index)} selected={selected === index} >
+                      <MenuItem key={index}  button onClick={() => handleClickMobile(item, index)} selected={selected === index} >
                           <ListItemIcon>{item.icon}</ListItemIcon>
                           <ListItemText primary={item.name} />
                         </MenuItem>
@@ -331,7 +335,7 @@ const handleClick = (item, selectedIndex) => {
 
   return (
     <Paper elevation={0}>
-    <div className={classes.grow}>
+    <Box className={classes.grow}>
       <CssBaseline />
       <AppBar color="primary">
         <Toolbar>
@@ -354,7 +358,7 @@ const handleClick = (item, selectedIndex) => {
           
           
          
-            <div className={classes.appBarLink}>
+            <Box className={classes.appBarLink}>
               
               <Hidden xsDown={true} implementation="css">
                 <Box ml={-30}> 
@@ -376,7 +380,7 @@ const handleClick = (item, selectedIndex) => {
                   
                 </Box>
                 
-          <div className={classes.sectionMobile}>
+          <Box className={classes.sectionMobile}>
             <IconButton
               aria-label="show more"
               aria-controls={mobileMenuId}
@@ -386,14 +390,24 @@ const handleClick = (item, selectedIndex) => {
             >
               <MoreIcon />
             </IconButton>
-          </div>
+          </Box>
                  </Hidden>
 
-            </div>
+            </Box>
           
             <Box className={classes.grow} />
            
-          <Box className={classes.sectionDesktop}>
+            <Box className={classes.sectionDesktop}>
+              
+              <IconButton
+                
+                style={{marginRight: 10}}
+                  aria-label="toggle"
+                  size="small"
+              edge="start"
+              color="inherit"
+             
+              ><AccountCircle/></IconButton>
             <IconButton
                 onClick={handleThemeChange}
                   aria-label="toggle"
@@ -482,7 +496,7 @@ const handleClick = (item, selectedIndex) => {
           <KeyboardArrowUpIcon style={{color: '#fff'}}/>
         </Fab>
       </ScrollTop>
-      </div>
+      </Box>
       </Paper>
   );
 }

@@ -1,18 +1,8 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import clsx from 'clsx';
-import Card from '@material-ui/core/Card';
-import CardHeader from '@material-ui/core/CardHeader';
-import CardMedia from '@material-ui/core/CardMedia';
-import CardContent from '@material-ui/core/CardContent';
-import CardActions from '@material-ui/core/CardActions';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import Collapse from '@material-ui/core/Collapse';
-import Avatar from '@material-ui/core/Avatar';
-import Typography from '@material-ui/core/Typography';
 import { red } from '@material-ui/core/colors';
 
-import {Box,Avater,Divider,Button, Paper, EditIcon, Grid, OutlinedInput, InputLabel,
+import {Box,Avater,Divider,Button, PhotoCameraIcon, EditIcon, Grid, OutlinedInput, InputLabel,
     InputAdornment, FormControl, IconButton, Person} from '../../mui'
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -45,74 +35,79 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: red[500],
     },
     profilePicContainer: {
-      position: 'absolute',
-    top: '80%',
+    
+    position: 'absolute',
+    top: '25%',
     left: '50%',
-        transform: 'translate(-50%, -50%)',
+    transform: 'translate(-50%, -50%)',
 
     },
     profilePic: {
         width: 100,
         height: 100
+    },
+    editIcon: {
+    position: 'absolute',
+    top: '26%',
+    left: '51%',
+    zIndex: 50,
+    transform: 'translate(-50%, -50%)',
+    [theme.breakpoints.down('xs')]: {
+        left: '54%'
+    }
+    },
+    btn: {
+        [theme.breakpoints.down('xs')]: {
+            marginTop: -30
+        }
     }
 }));
 
 export default function RecipeReviewCard() {
   const classes = useStyles();
-  const [expanded, setExpanded] = React.useState(false);
+  const [editInfo, setEditInfo] = React.useState(false);
 
-
+    const handleEditInfo = () => {
+    setEditInfo((prev)=> !prev)
+}
 
     return (
-        <Box m={1}>
-      <Paper elevation={0}>
-    <Card className={classes.root}>
-      
-          
-                    <CardActionArea>
-                        <Box mb={-10}>
-              <CardHeader
-        
-        action={
-             <IconButton
-            aria-label="show more"
-              
-              aria-haspopup="true"
-              
+        <Box mx={{ xs: 1, sm: 8, md: 38 }} my={2}>
+            
+            <form>
+                <Box >
+                    <Box className={classes.editIcon}><IconButton
+                  aria-label="toggle"
+                  size="small"
+              edge="start"
               color="inherit"
-                          >
-            <EditIcon />
-          </IconButton>
-        }
-        title="My Profile"
-                  />
-                  </Box>
-        <CardMedia
-          className={classes.media}
-          image={require('../../assets/header.jpeg')}
-          
-                        />
-                        <Box className={classes.profilePicContainer}>
-                      <Avater className={classes.profilePic} src={require('../../assets/profilePic.jpg')}/>      
-                        </Box>
-                    </CardActionArea>
-                </Card>
-                
-                <Grid container justify='center' alignContent="center">
+             
+              ><PhotoCameraIcon/></IconButton></Box>
                     
-                        <form>
-                        <Box mx={2}>
+                    
+                <Grid container justify='center' alignContent="center" spacing={2}>
+                        <Grid item container justify='center' alignContent="center" >
                             <Grid item>
-                                <FormControl className={clsx(classes.margin, classes.textField)} variant="outlined" fullWidth>
+                                <Box >
+                                    
+                                    <Avater className={classes.profilePic} src={require('../../assets/profilePic.jpg')} />
+                                    
+            </Box>
+                            </Grid>
+                            
+                    </Grid>
+                    <Grid item xs={12} sm={6}>
+                                <FormControl  variant="outlined" fullWidth>
           <InputLabel htmlFor="outlined-adornment-password">First Name</InputLabel>
           <OutlinedInput
             id="outlined-adornment-password"
             type={ 'text' }
             labelWidth={70}
-          />
-                                </FormControl>
-                            </Grid>
-                        <Grid item><FormControl className={clsx(classes.margin, classes.textField)} variant="outlined" fullWidth>
+                        />
+                    </FormControl>
+                    </Grid>
+                <Grid item xs={12} sm={6}>
+                    <FormControl variant="outlined" fullWidth>
           <InputLabel htmlFor="outlined-adornment-password">Last Name</InputLabel>
           <OutlinedInput
             id="outlined-adornment-password"
@@ -120,7 +115,8 @@ export default function RecipeReviewCard() {
             labelWidth={70}
           />
                                 </FormControl></Grid>
-                                <Grid item><FormControl className={clsx(classes.margin, classes.textField)} variant="outlined" fullWidth>
+                <Grid item xs={12} sm={6}>
+                    <FormControl variant="outlined" fullWidth>
           <InputLabel htmlFor="outlined-adornment-password">Phone Number</InputLabel>
           <OutlinedInput
             id="outlined-adornment-password"
@@ -128,7 +124,8 @@ export default function RecipeReviewCard() {
             labelWidth={70}
           />
                                 </FormControl></Grid>
-                                <Grid item><FormControl className={clsx(classes.margin, classes.textField)} variant="outlined" fullWidth>
+                <Grid item xs={12} sm={6}>
+                    <FormControl variant="outlined" fullWidth>
           <InputLabel htmlFor="outlined-adornment-password">Email</InputLabel>
           <OutlinedInput
             id="outlined-adornment-password"
@@ -136,7 +133,8 @@ export default function RecipeReviewCard() {
             labelWidth={70}
           />
                                 </FormControl></Grid>
-                                <Grid item><FormControl className={clsx(classes.margin, classes.textField)} variant="outlined" fullWidth>
+                <Grid item xs={12} sm={6}>
+                    <FormControl variant="outlined" fullWidth>
           <InputLabel htmlFor="outlined-adornment-password">Gender</InputLabel>
           <OutlinedInput
             id="outlined-adornment-password"
@@ -144,9 +142,7 @@ export default function RecipeReviewCard() {
             labelWidth={70}
           />
                                 </FormControl></Grid>
-                                <Grid item>
-                                <Box ml={1}>Address</Box></Grid>
-                                <Grid item><FormControl className={clsx(classes.margin, classes.textField)} variant="outlined" fullWidth>
+                                <Grid item xs={12} sm={6}><FormControl variant="outlined" fullWidth>
           <InputLabel htmlFor="outlined-adornment-password">Street</InputLabel>
           <OutlinedInput
             id="outlined-adornment-password"
@@ -154,7 +150,8 @@ export default function RecipeReviewCard() {
             labelWidth={70}
           />
                                 </FormControl></Grid>
-                                <Grid item><FormControl className={clsx(classes.margin, classes.textField)} variant="outlined" fullWidth>
+                <Grid item xs={12} sm={6}>
+                    <FormControl variant="outlined" fullWidth>
           <InputLabel htmlFor="outlined-adornment-password">City</InputLabel>
           <OutlinedInput
             id="outlined-adornment-password"
@@ -162,7 +159,8 @@ export default function RecipeReviewCard() {
             labelWidth={70}
           />
                                 </FormControl></Grid>
-                                <Grid item><FormControl className={clsx(classes.margin, classes.textField)} variant="outlined" fullWidth>
+                <Grid item xs={12} sm={6}>
+                    <FormControl variant="outlined" fullWidth>
           <InputLabel htmlFor="outlined-adornment-password">State</InputLabel>
           <OutlinedInput
             id="outlined-adornment-password"
@@ -170,15 +168,19 @@ export default function RecipeReviewCard() {
             labelWidth={70}
           />
                             </FormControl></Grid>
+                        <Grid item xs={12} sm={4}>
                             
-                            <Grid item>
-                                <Box m={2}><Button variant="contained" color="secondary" fullWidth>Update</Button></Box>
+                            </Grid>
+                        <Grid item xs={12} sm={4}>
+                            
+                            </Grid>
+                            <Grid item xs={12} sm={4}>
+                                <Box component="div" className={classes.btn} > <Button variant="contained" color="secondary" fullWidth>Save</Button></Box>
                                 </Grid>
-                                
-                            </Box>
-                            </form>
-                    </Grid>
-            </Paper>
+        </Grid>
+                   </Box>         
+                </form>
+            
             </Box>
   );
 }

@@ -1,15 +1,12 @@
 import React from 'react';
 import { createBrowserHistory } from 'history';
-import { Switch, Route, Router, Redirect } from 'react-router-dom'
+import { Switch, Route, Router, Redirect,  } from 'react-router-dom'
 import { createMuiTheme, MuiThemeProvider, responsiveFontSizes } from '@material-ui/core/styles';
 import Navbar from './Layout/Navbar';
-import Train from './Views/Train/Train';
-import Home from './Views/Home/Home';
-import Flight from './Views/Flight/Flight';
-import Profile from './Views/Profile/Profile';
-import Reports from './Views/Report/Report';
+
+import {Dashboard, Flight, Train, Profile, Reports} from './Layout/Routes/Routes'
 import { deepOrange, grey, indigo, amber, } from '@material-ui/core/colors';
-import { TransitionGroup, CSSTransition} from 'react-transition-group';
+
 import Muli from './fonts/Muli-Regular.ttf';
 
 
@@ -18,7 +15,7 @@ import Muli from './fonts/Muli-Regular.ttf';
 
 export const history = createBrowserHistory();
 
-const darkMode = React.createContext()
+
 
 
 const muli = {
@@ -97,7 +94,7 @@ const App = () => {
       
     <MuiThemeProvider theme={theme}>
       
-      <Router history={history}>
+        <Router history={history}>
         <Navbar history={history} darkState={darkState} handleMotion={handleMotion} handleThemeChange={handleThemeChange} />
         
         <Switch >
@@ -107,11 +104,12 @@ const App = () => {
         to="/dashboard"
             />
             
-          <Route exact path="/dashboard" render={props => <Home {...props}/>}/>
-          <Route  path='/train' render={props => <Train darkState={darkState} {...props} />} />
-            <Route path='/flight' render={props => <Flight {...props} />} />
-            <Route path='/profile' render={props => <Profile {...props} />} />
-            <Route  path='/reports' render={props => <Reports {...props}/>} />
+          <Route exact path="/dashboard" name="Dashboard" render={props => <Dashboard {...props}/>}/>
+          <Route  path='/train' name="Train" render={props => <Train darkState={darkState} {...props} />} />
+            <Route path='/flight' name="Flight" render={props => <Flight {...props} />} />
+            <Route path='/profile' name="Profile" render={props => <Profile {...props} />} />
+            <Route path='/reports' name="Reports" render={props => <Reports {...props} />} />
+            
           </Switch>
         
         </Router>
