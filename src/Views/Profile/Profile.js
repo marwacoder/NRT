@@ -49,10 +49,10 @@ const useStyles = makeStyles((theme) => ({
     editIcon: {
     position: 'absolute',
     top: '26%',
-    left: '51%',
+    left: '52%',
     zIndex: 50,
     transform: 'translate(-50%, -50%)',
-    [theme.breakpoints.down('xs')]: {
+    [theme.breakpoints.down('sm')]: {
       left: '54%',
       top: '26%'
     }
@@ -77,23 +77,24 @@ export default function RecipeReviewCard() {
             
             <form>
                 <Box >
-                    <Box className={classes.editIcon}><IconButton
-                  aria-label="toggle"
-                  size="large"
-              edge="start"
-              color="inherit"
-             
-              ><PhotoCameraIcon/></IconButton></Box>
+                   
                     
                     
                 <Grid container justify='center' alignContent="center" spacing={1}>
                         <Grid item container justify='center' alignContent="center" >
                             <Grid item>
-                                <Box >
-                                    
-                                    <Avater className={classes.profilePic} src={require('../../assets/profilePic.jpg')} />
-                                    
-            </Box>
+                  <Box mb={4}>
+                    <Box mb={-4}>
+                  <Avater className={classes.profilePic} src={require('../../assets/profilePic.jpg')} />
+
+                    </Box>
+                  <Box pt={-9} pl={8}><IconButton
+                  aria-label="toggle"
+                  size="small"
+              color="inherit"
+             
+                    ><PhotoCameraIcon /></IconButton></Box>            
+                  </Box>
                             </Grid>
                             
                     </Grid>

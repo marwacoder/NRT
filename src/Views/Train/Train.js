@@ -374,7 +374,7 @@ const handleClickOpen = () => {
                               
                           aria-label="toggle password visibility"
                           edge="end">
-                          <ArrowDropDownIcon  color="primary" fontSize="medium" />
+                          <ArrowDropDownIcon   color="primary" fontSize="default" />
                         </IconButton>
                         </Box>
                       
@@ -401,7 +401,7 @@ const handleClickOpen = () => {
                         <IconButton
                           aria-label="toggle password visibility"
                           edge="end">
-                          <ArrowDropDownIcon  color="primary" fontSize="medium" />
+                          <ArrowDropDownIcon  color="primary" fontSize="default" />
                         </IconButton>
                         </Box>
                       
@@ -428,7 +428,7 @@ const handleClickOpen = () => {
                         <IconButton
                           aria-label="toggle password visibility"
                           edge="end">
-                          <ArrowDropDownIcon  color="primary" fontSize="medium" />
+                          <ArrowDropDownIcon  color="primary" fontSize="default" />
                         </IconButton>
                         </Box>
                       
@@ -455,7 +455,7 @@ const handleClickOpen = () => {
                         <IconButton
                           aria-label="toggle password visibility"
                           edge="end">
-                          <ArrowDropDownIcon  color="primary" fontSize="medium" />
+                          <ArrowDropDownIcon  color="primary" fontSize="default" />
                         </IconButton>
                         </Box>
                       
@@ -575,7 +575,7 @@ const handleClickOpen = () => {
                 </Grid>
                   
                     <Grid item xs={3} >
-                      <DateRangeIcon color="#fff" style={{ fontSize: 30 }} />
+                      <DateRangeIcon  style={{ fontSize: 30, color: 'white' }} />
                     </Grid>
                     <Grid item xs={3}><Box width={90}>Fri Nov, 2020</Box></Grid>
                     

@@ -1,10 +1,10 @@
-import React from 'react';
+import React,{Suspense, lazy} from 'react';
 import { createBrowserHistory } from 'history';
 import { Switch, Route, Router, Redirect,  } from 'react-router-dom'
 import { createMuiTheme, MuiThemeProvider, responsiveFontSizes } from '@material-ui/core/styles';
 import Navbar from './Layout/Navbar';
+import Spinner from './helpers/Spinner/Spinner'
 
-import {Dashboard, Flight, Train, Profile, Reports} from './Layout/Routes/Routes'
 import { deepOrange, grey, indigo, amber, } from '@material-ui/core/colors';
 
 import Muli from './fonts/Muli-Regular.ttf';
@@ -89,6 +89,13 @@ const App = () => {
   const handleMotion = () => {
     setRoute((prev) => !prev)
   }
+
+
+  const Dashboard = React.lazy(() => import('./Views/Home/Home.js'));
+  const Train = React.lazy(() => import('./Views/Train/Train.js'));
+  const Profile = React.lazy(() => import('./Views/Profile/Profile.js'));
+  const Reports = React.lazy(() => import('./Views/Report/Report.js'));
+  const Flight = React.lazy(() => import('./Views/Flight/Flight.js'));
   return (
     <>
       
@@ -103,13 +110,13 @@ const App = () => {
         from="/"
         to="/dashboard"
             />
-            
+            <Suspense fallback= {<Spinner/>}>
           <Route exact path="/dashboard" name="Dashboard" render={props => <Dashboard {...props}/>}/>
           <Route  path='/train' name="Train" render={props => <Train darkState={darkState} {...props} />} />
             <Route path='/flight' name="Flight" render={props => <Flight {...props} />} />
             <Route path='/profile' name="Profile" render={props => <Profile {...props} />} />
             <Route path='/reports' name="Reports" render={props => <Reports {...props} />} />
-            
+            </Suspense>
           </Switch>
         
         </Router>

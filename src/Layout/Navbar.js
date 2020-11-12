@@ -9,7 +9,7 @@ import {
   MenuIcon, AccountCircle, AppBar, Toolbar,BrightIcon,SwipeableDrawer,
   IconButton, Typography, Fab, useScrollTrigger, DarkIcon, Grid, Paper
 } from '../mui';
-import { Redirect } from 'react-router-dom'
+
 import AuthContainer from '../Views/Auth/AuthContainer'
 import {DarkReport, LightReport} from '../Views/Train/SVG/Report'
 import TrainIcon from '../Layout/TrainIcon';
@@ -133,8 +133,8 @@ const Navbar = (props) => {
 
 
 const handleClick = (item, selectedIndex) => {
-     
-  history.replace(item.link);
+  history.push(item.link);
+  handleTrainMenuClose()
   setSelected(selectedIndex)
 
   }
@@ -201,7 +201,7 @@ const handleClick = (item, selectedIndex) => {
       onClose={handleTrainMenuClose}
     >
       {menu[0][0].map((item, index) => {
-        console.log(item.link,'item', index,'index')
+      
         return (
           <MenuItem key={index} button onClick={() => handleClick(item, index)} selected={selected === index}>
         <IconButton>{item.icon}</IconButton>
@@ -252,7 +252,7 @@ const handleClick = (item, selectedIndex) => {
       <Box>
         <List component="nav" >
           {mobileMenu.map((item, index) => {
-                    console.log(item, 'item...')
+                   
                     return <>
                       <Box pl={1} fontWeight="fontWeightBold">
                       <MenuItem key={index}  button onClick={() => handleClickMobile(item, index)} selected={selected === index} >
@@ -400,7 +400,7 @@ const handleClick = (item, selectedIndex) => {
             <Box className={classes.sectionDesktop}>
               
               <IconButton
-                
+                onClick={()=> history.push('/profile')}
                 style={{marginRight: 10}}
                   aria-label="toggle"
                   size="small"
