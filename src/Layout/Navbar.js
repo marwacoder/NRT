@@ -134,7 +134,6 @@ const Navbar = (props) => {
 
 const handleClick = (item, selectedIndex) => {
   history.push(item.link);
-  handleTrainMenuClose()
   setSelected(selectedIndex)
 
   }

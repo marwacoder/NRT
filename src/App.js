@@ -3,7 +3,8 @@ import { createBrowserHistory } from 'history';
 import { Switch, Route, Router, Redirect,  } from 'react-router-dom'
 import { createMuiTheme, MuiThemeProvider, responsiveFontSizes } from '@material-ui/core/styles';
 import Navbar from './Layout/Navbar';
-import Spinner from './helpers/Spinner/Spinner'
+import Spinner from './helpers/Spinner/Spinner';
+import BreadCrumb from './helpers/BreadCrumb/BreadCrumb';
 
 import { deepOrange, grey, indigo, amber, } from '@material-ui/core/colors';
 
@@ -103,7 +104,7 @@ const App = () => {
       
         <Router history={history}>
         <Navbar history={history} darkState={darkState} handleMotion={handleMotion} handleThemeChange={handleThemeChange} />
-        
+        <BreadCrumb/>
         <Switch >
           <Redirect
         exact

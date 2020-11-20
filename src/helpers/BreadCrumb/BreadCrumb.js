@@ -4,6 +4,7 @@ import Breadcrumbs from '@material-ui/core/Breadcrumbs';
 import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
+import {Box } from '../../mui';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -22,7 +23,7 @@ export default function CustomSeparator() {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
+    <Box m={2}>
       <Breadcrumbs separator={<NavigateNextIcon fontSize="small" />} aria-label="breadcrumb">
         <Link color="inherit" href="/" onClick={handleClick}>
           Material-UI
@@ -32,6 +33,6 @@ export default function CustomSeparator() {
         </Link>
         <Typography color="textPrimary">Breadcrumb</Typography>
       </Breadcrumbs>
-    </div>
+    </Box>
   );
 }

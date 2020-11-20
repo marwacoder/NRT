@@ -1,16 +1,208 @@
 import React from 'react';
 import PropTypes from 'prop-types';
- import {
+import {
   makeStyles, Fade, PlaceIcon, DateRangeIcon, Button,
   Paper, Card, Menu, MenuItem, NavigateNext, ButtonGroup,
   ArrowDropDownIcon, IconButton, Typography,
   Box, Grid, AppBar, Toolbar, NavigateBefore,
 } from '../../mui';
+import { indigo } from '@material-ui/core/colors';
+import TrainPaymentDetails from '../TrainPaymentDetails/TrainPaymentDetails';
 
 
+
+const useStyles = makeStyles((theme) => ({
+  avail: {
+    cursor: 'pointer',
+    margin: '3px 0px',
+    textDecoration: 'underline',
+    
+  },
+  appBarItem: {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    [theme.breakpoints.down('sm')]: {
+      marginLeft: -25
+    }
+  },
+  secondAppBar: {
+    backgroundColor: indigo[50],
+    minHeight: 30,
+    
+    [theme.breakpoints.down('sm')]: {
+      backgroundColor: '#fff',
+      
+      
+    }
+  },
+  tn: {
+    [theme.breakpoints.down('sm')]: {
+      marginTop: 0
+      
+      
+    }
+  },
+  trainBookInfo: {
+    marginTop: '10px',
+
+    [theme.breakpoints.down('xs')]: {
+      marginTop: '-513px',
+      marginLeft: '170px'
+    }
+  },
+ 
+  heading: {
+    
+    [theme.breakpoints.down('sm')]: {
+      marginBottom: '30px'
+    }
+  },
+  card: {
+    backgroundColor: theme.palette.background.paper
+  },
+  
+  availProb: {
+    marginTop: '23px',
+    marginLeft: 60,
+    [theme.breakpoints.down('sm')]: {
+      
+      fontSize: 14,
+      marginLeft: 50,
+      marginTop: 25,
+
+    },
+    [theme.breakpoints.down('xs')]: {
+      marginLeft: 0
+    }
+  },
+  duration: {
+    [theme.breakpoints.down('sm')]: {
+      marginTop: 16
+    }
+  },
+  classes: {
+    marginTop: '22px',
+    [theme.breakpoints.down('sm')]: {
+      marginTop: 20,
+      marginLeft: 20,
+      width: 80
+    },
+    [theme.breakpoints.down('xs')]: {
+      marginTop: 35,
+      marginLeft: 0
+    }
+  },
+  departure: {
+    [theme.breakpoints.down('sm')]: {
+      marginTop: 20
+    }
+  },
+  arrival: {
+    [theme.breakpoints.down('sm')]: {
+      marginTop: 16
+    }
+  },
+  fare: {
+    marginTop: '30px',
+    [theme.breakpoints.down('sm')]: {
+      marginTop: 40,
+      
+    },
+    
+  },
+  action: {
+    marginTop: '23px',
+    marginLeft: 10,
+    [theme.breakpoints.down('sm')]: {
+      marginTop: 15,
+      width: 150
+    },
+    [theme.breakpoints.down('xs')]: {
+      marginLeft: 0
+    }
+  },
+  buttonGroup: {
+    
+    [theme.breakpoints.down('sm')]: {
+      width: 20
+    }
+  },
+  btnAvail: {
+    [theme.breakpoints.down('sm')]: {
+      fontSize: 13
+    },
+    [theme.breakpoints.down('xs')]: {
+      fontSize: 12
+    }
+  },
+  class: {
+    [theme.breakpoints.down('sm')]: {
+      marginLeft: 30
+    }
+  },
+  availability: {
+    [theme.breakpoints.down('sm')]: {
+      marginLeft: 20
+    }
+  },
+  headerAction: {
+    [theme.breakpoints.down('sm')]: {
+      marginLeft: 20
+    },
+    [theme.breakpoints.down('xs')]: {
+      marginLeft: 1
+    }
+  },
+  headerArrival: {
+    [theme.breakpoints.down('sm')]: {
+      marginLeft: 5
+    }
+  },
+  headerAvailability: {
+    marginLeft: 60,
+    [theme.breakpoints.down('sm')]: {
+      marginLeft: 20
+    },
+    [theme.breakpoints.down('xs')]: {
+      marginLeft: 1
+    }
+  },
+  headerClasses: {
+    [theme.breakpoints.down('sm')]: {
+      marginLeft: 15
+    },
+    [theme.breakpoints.down('xs')]: {
+      marginLeft: 1
+    }
+  },
+  headerDeparture: {
+    [theme.breakpoints.down('sm')]: {
+      marginLeft: -15
+    },
+    [theme.breakpoints.down('xs')]: {
+      marginLeft: 1
+    }
+  }
+  
+  
+}))
+ 
 const TrainInfo = () => {
-    return (
-        <Box>
+
+  const [toggle, setToggle] = React.useState(false);
+    const classes = useStyles();
+
+const handleClickOpen = () => {
+    setToggle(true);
+  };
+  const handleClose = () => {
+    setToggle(false);
+  };
+  return (
+    <Box>
+    <Box>
         <Box   >
             <AppBar  color="primary" position="static" >
             <Toolbar >
@@ -26,7 +218,7 @@ const TrainInfo = () => {
                 </Grid>
                   
                     <Grid item xs={3} >
-                      <DateRangeIcon color="#fff" style={{ fontSize: 30 }} />
+                      <DateRangeIcon  style={{ fontSize: 30, color: 'white' }} />
                     </Grid>
                     <Grid item xs={3}><Box width={90}>Fri Nov, 2020</Box></Grid>
                     
@@ -110,7 +302,8 @@ const TrainInfo = () => {
           </Box>
           </Paper>
       </Box>
-    );
+      </Box>
+  );
 }
  
 TrainInfo.propTypes = {};

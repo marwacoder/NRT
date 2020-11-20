@@ -108,9 +108,11 @@ import EditIcon from '@material-ui/icons/Edit';
 import EditOutLinedIcon from '@material-ui/icons/EditOutlined';
 import PhotoCameraIcon from '@material-ui/icons/PhotoCamera';
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
-
+import Stepper from '@material-ui/core/Stepper';
+import Step from '@material-ui/core/Step';
+import StepLabel from '@material-ui/core/StepLabel';
 export {
-    KeyboardArrowUpIcon, Zoom, PlaceIcon, MuiDialogContent, SwipeableDrawer,
+    KeyboardArrowUpIcon, Zoom, PlaceIcon, MuiDialogContent, SwipeableDrawer,Step, Stepper, StepLabel,
     Avater, Timeline, MuiDialogActions, BrightIcon, DarkIcon, NavigateBefore,
     NavigateNext, ButtonGroup, EditOutLinedIcon,PhotoCameraIcon,
     DeleteForever, MuiDialogTitle, InputLabel, OutlinedInput, makeStyles, Paper, Person,
