@@ -1,5 +1,6 @@
 import React, {useEffect} from 'react';
 import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
 import {
   makeStyles, MoreIcon, MailIcon,
   NotificationsIcon, Menu, Divider,Timeline,
@@ -22,13 +23,6 @@ const useStyles = makeStyles((theme) => ({
     position: 'fixed',
     bottom: theme.spacing(2),
     right: theme.spacing(2),
-    
-    // '&$focusVisible': {
-    //   backgroundColor: theme.palette.action.selected,
-    // },
-    // '&$Selected, &$Selected:hover': {
-    //   backgroundColor: theme.palette.action.selected,
-    // }
   },
 
   grow: {
@@ -111,6 +105,9 @@ const Navbar = (props) => {
   const [selected, setSelected] = React.useState(null);
  const [toggle, setToggle] = React.useState(false);
 
+  
+  const { modules } = useSelector(state => state)
+  console.log(modules)
   const handleClickOpen = () => {
     setToggle(true);
   };

@@ -92,11 +92,11 @@ const App = () => {
   }
 
 
-  const Dashboard = React.lazy(() => import('./Views/Home/Home.js'));
-  const Train = React.lazy(() => import('./Views/Train/Train.js'));
-  const Profile = React.lazy(() => import('./Views/Profile/Profile.js'));
-  const Reports = React.lazy(() => import('./Views/Report/Report.js'));
-  const Flight = React.lazy(() => import('./Views/Flight/Flight.js'));
+  const Dashboard = lazy(() => import('./Views/Home/Home.js'));
+  const Train = lazy(() => import('./Views/Train/Train.js'));
+  const Profile = lazy(() => import('./Views/Profile/Profile.js'));
+  const Reports = lazy(() => import('./Views/Report/Report.js'));
+  const Flight = lazy(() => import('./Views/Flight/Flight.js'));
   return (
     <>
       

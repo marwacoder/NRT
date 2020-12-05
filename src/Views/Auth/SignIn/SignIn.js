@@ -1,10 +1,14 @@
 import React from 'react';
 import clsx from 'clsx';
 import {
-    withStyles, MuiDialogTitle, CloseIcon, Typography,
-    makeStyles, IconButton, OutlinedInput, InputLabel,
+    makeStyles, IconButton, OutlinedInput, InputLabel,Button,
     InputAdornment, FormControl, Paper, Person, Visibility, VisibilityOff
 } from '../../../mui'
+import { useDispatch } from 'react-redux';
+import { login } from '../../../store/actions';
+
+
+
 
 const styles = (theme) => ({
   root: {
@@ -43,15 +47,13 @@ const useStyles = makeStyles(theme => ({
     width: '40ch',
   },
     }));
-export default function CustomizedDialogs(props) {
+const  SignIn =(props) =>{
 const classes = useStyles();
-    
+    const dispatch = useDispatch();
     
     const [values, setValues] = React.useState({
-    amount: '',
+    email: "",
     password: '',
-    weight: '',
-    weightRange: '',
     showPassword: false,
   });
 
@@ -66,18 +68,26 @@ const classes = useStyles();
   const handleMouseDownPassword = event => {
     event.preventDefault();
   };
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+   
+    dispatch(login(values.email,values.password))
+  }
+
+
   return (
       <Paper elevation={0}>
-                  <form>
+                  <form onSubmit={handleSubmit}>
                     
                       <div>
                           <FormControl className={clsx(classes.margin, classes.textField)} variant="outlined" fullWidth>
-          <InputLabel htmlFor="outlined-adornment-password">Username</InputLabel>
+          <InputLabel htmlFor="outlined-adornment-password">email</InputLabel>
           <OutlinedInput
             id="outlined-adornment-password"
             type={ 'text' }
-            value={values.password}
-            onChange={handleChange('password')}
+            value={values.email}
+            onChange={handleChange('email')}
             endAdornment={
               <InputAdornment position="end">
                    <Person />
@@ -109,7 +119,17 @@ const classes = useStyles();
             labelWidth={70}
           />
         </FormControl>
+        <div>
+                          
+                          
+         <div style={{paddingBottom: 10}}> <Button type="submit" fullWidth  color="secondary" variant="contained">
+                     <span style={{color: '#fff'}}>Sign In</span> 
+                          </Button></div>
+                      
+                      </div>
           </form>
               </Paper>
   );
 }
+
+export default SignIn;

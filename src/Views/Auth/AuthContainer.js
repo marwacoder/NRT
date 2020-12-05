@@ -89,14 +89,9 @@ export default function CustomizedDialogs(props) {
                   {toggleAuth === false ? <SignIn/>: <SignUp/>  }
         </DialogContent>
                   <DialogActions>
-                      <div>
-                          
-                          
-         <div style={{paddingBottom: 10}}> <Button fullWidth  onClick={handleClose} color="secondary" variant="contained">
-                     <span style={{color: '#fff'}}>{ toggleAuth === false ? "Sign In": "Sign Up"}</span> 
-                          </Button></div>
+                     
+
                           <div>{toggleAuth === false ? "Don't have an account?": "Already have an account?" }  <Button onClick={handleToggleAuthForm} color="primary">{toggleAuth === false ? "Sign Up": "Sign In"}</Button></div>
-                      </div>
                       
         </DialogActions>
               </Dialog>
